@@ -1,1 +1,7 @@
-﻿
+﻿/*  먼저 normalize 한 뒤에 사용
+    해당 소스는 normalize 4.2.0 버전을 사용하여 작성됨 
+    normalize 파일은 normalize_4_2_0.css 파일로 함께 있음. 
+    html 파일에서 link를 이용하여 normalize 파일을 먼저 link 시킨 후 사용할 것*/
+
+@charset "utf-8";
+
