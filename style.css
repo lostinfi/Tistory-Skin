@@ -4,92 +4,149 @@
     html 파일에서 link를 이용하여 normalize 파일을 먼저 link 시킨 후 사용할 것*/
 
 @charset "utf-8";
-/*
-#container	{width:1400px; margin: 0 auto;}
 
-#header_container	{width:100%; height:400px;}
-#content_container	{width:1000px; float:left;}
-#sidebar_container	{width:400px; float:left;}
-#footer_container	{width:1400px; height:100px; float:left; }
 
-#content_container, #sidebar_container {height:600px;}
-
-#header_container	{background-color:rgb(255, 0, 0);}
-#content_container	{background-color:rgb(0, 255, 144);}
-#sidebar_container	{background-color:rgb(182, 255, 0);}
-#footer_container	{background-color:rgb(72, 0, 255);}
-*/
-
-/* All Device*/
-#container	{width:100%; margin: 0 auto;}
-
-#header_container	{;}
-#content_container	{float:left;}
-#sidebar_container	{float:right;}
-#footer_container	{clear:both;}
-
-#content_container, #sidebar_container {height:600px;}
-
-/*
-#header_container	{background-color:rgb(255, 0, 0);}
-#content_container	{background-color:rgb(0, 255, 144);}
-#sidebar_container	{background-color:rgb(182, 255, 0);}
-#footer_container	{background-color:rgb(72, 0, 255);}
-*/
-
-/* Desktop Device	: width > 1400px	*/
-@media screen and (min-width:1400px) {
-
-	#container	{width:1400px;}
-
-	#header_container	{width:100%; height:400px;}
-	#content_container	{width:1000px;}
-	#sidebar_container	{width:400px;}
-	#footer_container	{width:1400px; height:100px;}
+/* Layout------------------------------------------------------------------------*/
+/* -- All Device*/
+html, body {width:100%;}
+#layer_top {
+	width: 100%;
+	height: 50px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 999;
 }
 
-/* Deskrop Device	: width = 800~1200px, 1200~1400px	*/
-@media screen and (min-width:800px) and (max-width:1399px) {
+#container	{margin: 0 auto;}
 
-	#container	{;}
-
-	#header_container	{width:100%; height:400px;}
-	#content_container	{width:75%;}
-	#sidebar_container	{width:25%;}
-	#footer_container	{width:100%; height:100px;}
-}
-
-/* Tablet Device	: width = 480~800px	*/
-@media screen and (min-width:481px) and (max-width:799px) {
-	#container	{;}
-
-	#header_container	{width:100%; height:80px;}
-	#content_container	{width:100%;}
-	#sidebar_container	{width:100%;}
-	#footer_container	{width:100%; height:100px;}
-}
-
-/* Mobile Device	: width < 480px	*/
-@media screen and (max-width:480px) {
-	#container	{;}
-
-	#header_container	{width:100%; height:50px;}
-	#content_container	{width:100%;}
-	#sidebar_container	{width:100%;}
-	#footer_container	{width:100%; height:80px;}
-}
-
-/*#header, #content, #sidebar, #footer {margin : 10px;}*/
-
-/*각 영역을 시각적으로 확인하기 위한 테스트용 코드*/
-#header		{background-color:rgb(255, 0, 0);}
-#content	{background-color:rgb(0, 255, 144);}
-#sidebar	{background-color:rgb(182, 255, 0);}
-#footer		{background-color:rgb(72, 0, 255);}
+/*test code*/
+#content, #sidebar {height:1000px;}
 
 /*우상단 티스토리 툴바 없애기*/
 #tistorytoolbarid {display:none !important;} 
-#header, #content, #sidebar, #footer {height : 100%;}
 
-#header h1 {margin:0 auto;}
+/*중앙 부분에 마진을 적용하여 헤더쪽과 푸터쪽의 간격을 띄움*/
+#inner_container {margin:10px 0 10px 0;}
 
+/* -- Desktop Device	: width > 1400px	*/
+@media screen and (min-width:1400px) {
+	#container	{width:1400px;}
+
+	#header		{width:100%; height:300px; margin-top:200px;}
+	#content	{width:990px; float:left;}
+	#sidebar	{width:400px; float:right;}
+	#footer		{width:100%; height:100px;}
+}
+
+/* -- Desktop Device	: width = 800~1200px, 1200~1400px	*/
+@media screen and (min-width:1200px) and (max-width:1399px) {
+	#container {width:1200px;}
+
+	/*가상 엘리먼트 after를 이용하여 float을 clear함*/
+	#inner_container::after{content:""; display:block; clear:both;}
+}
+@media screen and (min-width:800px) and (max-width:1399px) {
+	#container	{width:100%;}
+	#header		{width:100%; height:300px; margin-top:200px;}
+	#content	{width:calc(100% - 210px); float:left;}
+	#sidebar	{width:200px; float:right;}
+	#footer		{width:100%; height:100px;}
+
+	/*가상 엘리먼트 after를 이용하여 float을 clear함*/
+	#inner_container::after{content:""; display:block; clear:both;}
+}
+
+/* -- Tablet Device	: width = 480~800px	*/
+@media screen and (min-width:481px) and (max-width:799px) {
+	#container	{width:calc(100% - 10px); padding:5px;}
+	#header		{width:100%; height:100px; margin-top:100px;}
+	#content	{width:100%; margin-bottom:10px;}
+	#sidebar	{width:100%;}
+	#footer		{width:100%; height:100px;}
+}
+
+/* -- Mobile Device	: width < 480px	*/
+@media screen and (max-width:480px) {
+	#container	{width:calc(100% - 10px); padding:5px;}
+	#header		{width:100%; height:50px;}
+	#content	{width:100%; margin-bottom:10px;}
+	#sidebar	{width:100%;}
+	#footer		{width:100%; height:80px;}
+}
+
+
+
+/* Color & Design----------------------------------------------------------------------*/
+/*test code*/
+
+/* -- All Device*/
+a {text-decoration:none;}
+a:hover {text-decoration:underline;}
+
+body {
+	background-color: #000000;
+	/*background-image: url("http://cfs.tistory.com/blog/style/template/image/generic/31.jpg");
+	background-repeat:no-repeat;
+	background-position:center top;*/
+}
+
+/*각 영역 디자인. 테두리와 색*/
+#header, #content, #sidebar, #footer {
+	box-sizing:border-box;
+	border:2px solid white; 
+	background:black;
+	color:white;
+}
+
+#layer_top{background:RGBA(200,200,255,0.8);}
+
+/* -- Desktop Device	: width > 1400px	*/
+@media screen and (min-width:1400px) {
+	#header {text-align:center; position:relative;}
+	#header h1 {padding-top:2em; margin:0px; font-size:3em;}
+	#header h1 a {color:#F7BE81;}
+	#header h2 {color: #9AFE2E;}
+}
+
+/* -- Desktop Device	: width = 800~1200px, 1200~1400px	*/
+@media screen and (min-width:1200px) and (max-width:1399px) {}
+@media screen and (min-width:800px) and (max-width:1399px) {
+	#header {text-align:center; position:relative;}
+	#header h1 {padding-top:2em; margin:0px; font-size:3em;}
+	#header h1 a {color:#F7BE81;}
+	#header h2 {color: #9AFE2E;}
+}
+
+/* -- Tablet Device	: width = 480~800px	*/
+@media screen and (min-width:481px) and (max-width:799px) {}
+
+/* -- Mobile Device	: width < 480px	*/
+@media screen and (max-width:480px) {}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Color----------------------------------------------------------------------*/
+/*test code*/
+/* -- All Device*/
+/* -- Desktop Device	: width > 1400px	*/
+@media screen and (min-width:1400px) {}
+
+/* -- Desktop Device	: width = 800~1200px, 1200~1400px	*/
+@media screen and (min-width:1200px) and (max-width:1399px) {}
+@media screen and (min-width:800px) and (max-width:1399px) {}
+
+/* -- Tablet Device	: width = 480~800px	*/
+@media screen and (min-width:481px) and (max-width:799px) {}
+
+/* -- Mobile Device	: width < 480px	*/
+@media screen and (max-width:480px) {}

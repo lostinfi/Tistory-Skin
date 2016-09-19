@@ -29,19 +29,27 @@
 	<!--Title-->
 	<title>[##_title_##] :: [##_page_title_##]</title>
 </head>
-<body>
+<body id="[##_body_id_##]">
 	<s_t3>
-		<div id="container">
-		<!-- header------------------------------------------------------>
-			<div id="header_container">
-				<div id="header">
-					<h1>01. 블로그 제목</h1>
-					<div class="menu">02. 블로그 메뉴</div>
-				</div> <!-- header close -->
-			</div> <!-- header_container close-->
+		<!-- 상단바------------------------------------------------------->
+		<div id="layer_top">
+			상단바
+		</div>
 
-		<!-- content----------------------------------------------------->
-			<div id="content_container">
+		<!-- 실제 페이지 -------------------------------------------------->
+		<div id="container">
+			<!-- 1. header ------------------------------------------------------>
+			<header id="header">
+				<hgroup id="header_title">
+					<h1><a href="[##_blog_link_##]">[##_title_##]</a></h1>
+					<h2>블로그 부제목</h2>
+				</hgroup>
+				<div class="header_menu">02. 블로그 메뉴</div>
+			</header> <!-- header close -->
+
+			<!-- 2. center ------------------------------------------------------>
+			<div id="inner_container">
+				<!-- 2-1. content----------------------------------------------------->
 				<div id="content">
 					<div class="searchList">11. 검색 결과 리스트</div>
 					<div class="searchRplist">12. 검색 결과 댓글 리스트</div>
@@ -69,20 +77,18 @@
 					</div><!-- entry close -->
 					<div class="entry">19. 페이지</div>
 				</div> <!-- content close -->
-			</div> <!-- content_container close-->
 
-		<!-- sidebar----------------------------------------------------->
-			<div id="sidebar_container">
-				<div id="sidebar">
+				<!-- 2-2. sidebar----------------------------------------------------->
+				<aside id="sidebar">
 					사이드바 영역
-				</div> <!-- sidebar close -->
+				</aside> <!-- sidebar close -->
 			</div>
-		<!-- footer------------------------------------------------------>
-			<div id="footer_container">
-				<div id="footer">
-					푸터 영역
-				</div> <!-- footer close -->
-			</div>
+		
+			<!-- 3. footer------------------------------------------------------>
+			<footer id="footer">
+				푸터 영역
+			</footer> <!-- footer close -->
+			
 		</div> <!-- container close -->
 	</s_t3>
 </body>
